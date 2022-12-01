@@ -12,7 +12,7 @@ public class Main  {
         // Generate the numbers
         int number = 1 + (int)(100 * Math.random());
  
-        // Given K trials
+        // Given K trials for each round
         int K = 5, i, guess;
  
         // Iterate over K Trials
