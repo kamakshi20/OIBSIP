@@ -1,0 +1,85 @@
+import java.util.Scanner;
+import java.util.*;
+public class Main  {
+    
+    static int count=0;
+    
+    // Function that implements the number guessing game
+    public static void guessingNumberGame(){
+        // Scanner Class
+        Scanner sc = new Scanner(System.in);
+ 
+        // Generate the numbers
+        int number = 1 + (int)(100 * Math.random());
+ 
+        // Given K trials
+        int K = 5, i, guess;
+ 
+        // Iterate over K Trials
+        for (i = 0; i < K; i++) {
+            System.out.println();
+            System.out.print("Guess the number:");
+ 
+            // Take input for guessing
+            guess = sc.nextInt();
+            
+            // If the guess is out of range
+            if(guess<1 || guess>100){
+                System.out.println("Oops!! Incorrect Input");
+                System.out.println();
+            }
+            // If the number is guessed
+            if (number == guess) {
+                System.out.println();
+                System.out.println("Congratulations!" + " You guessed the number.");
+                count+=1;
+                break;
+            }
+            else if (number > guess && i != K - 1) {
+                System.out.println("The number is "+ "greater than " + guess);
+                System.out.println();
+            }
+            else if (number < guess && i != K - 1) {
+                System.out.println("The number is" + " less than " + guess);
+                System.out.println();
+            }
+        }
+ 
+        if (i == K) {
+            System.out.println("You have exhausted" + " 5 trials.");
+ 
+            System.out.println("The number was " + number);
+        }
+    }
+ 
+    // Driver Code
+    public static void main(String arg[]){
+        // Function Call
+        System.out.println("        Welcome Players to the Number Guessing Game!!!\n");
+        System.out.println("\nThe Rules of the Game are as follows:");
+        System.out.println("\nRule 1: There will be 3 rounds in the game.\nRule 2: Each Round has 5 trials\n\nRule 3: The system will generate a random number from 1-100\n\nRule 4: You are required to guess a number in the given range\n\nRule 5: The computer will give you hints if you have entered the wrong number\n\nRule 6: You will be one Star for guessing the Right number for each round\n\nRule 7: Final scored will be displayed at the end of the Third Round\n\nAll The Very Best!!!\n\nLet the Game Begin :)");
+        
+        for(int i=0; i<3; i++){
+            
+            if(i==0){
+                System.out.println();
+                System.out.println("\nWelcome to the Round 1\n");
+            }
+            
+            if(i==1){
+                System.out.println();
+                System.out.println("\nWelcome to the Round 2\n");
+            }
+                
+            if(i==2){
+                System.out.println();
+                System.out.println("\nWelcome to the Round 3\n");
+            }
+            
+            guessingNumberGame(); 
+            System.out.println();
+        }
+        System.out.println();
+        System.out.println("Your Final Score is: "+ count);
+    }
+}
